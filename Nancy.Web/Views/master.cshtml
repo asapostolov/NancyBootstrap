@@ -1,0 +1,24 @@
+﻿@using SquishIt.Framework
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<NancyApplication2.BaseModel>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>NancyApplication2</title>
+
+	<style type="text/css">
+
+		body {
+			text-align: center;
+		}
+
+	</style>
+
+	@Bundle.Css().Add("")
+
+</head>
+<body>
+	<img src="/Content/nancy-logo.png" alt="Nancy logo" /><br />
+	@RenderBody()
+</body>
+</html>
