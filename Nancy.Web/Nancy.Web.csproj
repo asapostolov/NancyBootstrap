@@ -96,7 +96,6 @@
     <Content Include="Content\nancy-logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\SquishItLess.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="BundlesConfig.cs" />
     <Compile Include="Modules\AssetsModule.cs" />
@@ -104,6 +103,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\site.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
+    <Content Include="Content\site.min.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="Content\less\wells.less" />
     <Content Include="Content\less\variables.less" />
@@ -146,6 +151,7 @@
     <Content Include="Content\less\bootstrap.less" />
     <Content Include="Content\less\alerts.less" />
     <Content Include="Content\less\accordion.less" />
+    <Content Include="Content\site.less" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

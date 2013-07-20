@@ -61,7 +61,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nancy.Web\Nancy.Web.csproj">
@@ -82,11 +81,9 @@ xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.17.1\lib\Net40\
 
 
 
-xcopy "$(SolutionDir)Nancy.Web\Web.*.config" "$(TargetDir)*"
-
-xcopy "$(SolutionDir)Nancy.Web\Views\*.*" "$(TargetDir)Views\*"
-
-xcopy "$(SolutionDir)Nancy.Web\Content\*.*" "$(TargetDir)Content\*"</PostBuildEvent>
+xcopy /S /Y /R  "$(SolutionDir)Nancy.Web\Web.config" "$(TargetDir)*"
+xcopy /S /Y /R  "$(SolutionDir)Nancy.Web\Views\*.*" "$(TargetDir)Views\*"
+xcopy /S /Y /R  "$(SolutionDir)Nancy.Web\Content\*.*" "$(TargetDir)Content\*"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

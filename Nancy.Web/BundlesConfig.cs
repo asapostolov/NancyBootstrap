@@ -5,6 +5,7 @@ using System.Web;
 using SquishIt.Framework;
 using SquishIt.Framework.CSS;
 using SquishIt.Framework.JavaScript;
+using SquishIt.Less;
 
 namespace Nancy.Web {
 	public class SquishItFile {
@@ -29,7 +30,8 @@ namespace Nancy.Web {
 
       public static List<SquishItFile> PublicCss = new List<SquishItFile>
       {
-          new SquishItFile { Url = "Content/less/bootstrap.less", Minify = true }
+          //new SquishItFile { Url = "Content/less/bootstrap.less", Minify = true },
+		  new SquishItFile { Url = "Content/site.less", Minify = true }
       };
 
 	  //public static List<SquishItFile> AdminCss = new List<SquishItFile>
@@ -83,7 +85,7 @@ namespace Nancy.Web {
 
 		public static void Setup( string basePathForTesting = "" ) {
 			BasePathForTesting = basePathForTesting;
-
+			Bundle.RegisterStylePreprocessor( new LessPreprocessor() );
 			// CSS
 			BuildCssBundle( Bundles.PublicCss ).ForceRelease().AsCached( "public-css", "~/assets/css/public-css" );
 			BuildCssBundle( Bundles.PublicCss ).ForceDebug().AsNamed( "public-css-debug", "" );
