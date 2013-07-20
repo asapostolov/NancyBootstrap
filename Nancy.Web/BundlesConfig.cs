@@ -17,26 +17,26 @@ namespace Nancy.Web {
   {
       public static List<SquishItFile> PublicJavaScript = new List<SquishItFile>
       {
-          new SquishItFile { Url = "~/public/static/js/jquery-1.6.4.js", Minify = true },
-          new SquishItFile { Url = "~/public/static/js/startup.js", Minify = true }
+		  //new SquishItFile { Url = "~/public/static/js/jquery-1.6.4.js", Minify = true },
+		  //new SquishItFile { Url = "~/public/static/js/startup.js", Minify = true }
       };
 
-      public static List<SquishItFile> AdminJavaScript = new List<SquishItFile>
-      {
-          new SquishItFile { Url = "~/admin/static/js/lib/angular.js", Minify = true },
-          new SquishItFile { Url = "~/admin/static/js/app/app.js", Minify = false }
-      };
+	  //public static List<SquishItFile> AdminJavaScript = new List<SquishItFile>
+	  //{
+	  //	new SquishItFile { Url = "~/admin/static/js/lib/angular.js", Minify = true },
+	  //	new SquishItFile { Url = "~/admin/static/js/app/app.js", Minify = false }
+	  //};
 
       public static List<SquishItFile> PublicCss = new List<SquishItFile>
       {
-          new SquishItFile { Url = "~/public/static/css/site.css", Minify = true }
+          new SquishItFile { Url = "Content/less/bootstrap.less", Minify = true }
       };
 
-      public static List<SquishItFile> AdminCss = new List<SquishItFile>
-      {
-          new SquishItFile { Url = "~/admin/static/less/bootstrap/bootstrap.less", Minify = true },
-          new SquishItFile { Url = "~/admin/static/less/theme/theme.less", Minify = true }
-      };
+	  //public static List<SquishItFile> AdminCss = new List<SquishItFile>
+	  //{
+	  //	new SquishItFile { Url = "~/admin/static/less/bootstrap/bootstrap.less", Minify = true },
+	  //	new SquishItFile { Url = "~/admin/static/less/theme/theme.less", Minify = true }
+	  //};
   }
 	public class SquishItStartup {
 		protected static string BasePathForTesting = "";
@@ -67,9 +67,9 @@ namespace Nancy.Web {
 			foreach ( var item in files ) {
 				var url = item.Url;
 
-				if ( !string.IsNullOrWhiteSpace( BasePathForTesting ) ) {
-					url = BasePathForTesting + item.Url.Replace( "~", "" );
-				}
+				//if ( !string.IsNullOrWhiteSpace( BasePathForTesting ) ) {
+				//	url = BasePathForTesting + item.Url.Replace( "~", "" );
+				//}
 
 				if ( item.Minify ) {
 					bundle.Add( url );
@@ -89,7 +89,7 @@ namespace Nancy.Web {
 			BuildCssBundle( Bundles.PublicCss ).ForceDebug().AsNamed( "public-css-debug", "" );
 
 			// JS
-			BuildJavaScriptBundle( Bundles.PublicJavaScript ).ForceRelease().AsCached( "public-js", "~/assets/js/public-js" );
+			BuildJavaScriptBundle( Bundles.PublicJavaScript ).ForceRelease().AsCached( "public-js", "~/assets/js" );
 			BuildJavaScriptBundle( Bundles.PublicJavaScript ).ForceDebug().AsNamed( "public-js-debug", "" );
 
 		}

@@ -11,6 +11,8 @@
     <AssemblyName>Nancy.Console</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -71,14 +73,22 @@
   <PropertyGroup>
     <PostBuildEvent>
 if $(ConfigurationName) == Debug (
+
 xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.17.1\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+
 xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.17.1\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+
 )
 
+
+
 xcopy "$(SolutionDir)Nancy.Web\Web.*.config" "$(TargetDir)*"
+
 xcopy "$(SolutionDir)Nancy.Web\Views\*.*" "$(TargetDir)Views\*"
+
 xcopy "$(SolutionDir)Nancy.Web\Content\*.*" "$(TargetDir)Content\*"</PostBuildEvent>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

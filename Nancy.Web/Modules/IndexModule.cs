@@ -1,4 +1,4 @@
-﻿namespace NancyApplication2 {
+﻿namespace Nancy.Web {
 	using Nancy;
 
 	public class BaseModel {
@@ -14,7 +14,7 @@
 					Text = "Hello world",
 					Number = 1
 				};
-
+				
 				return View[ "index", model ];
 			};
 		}
